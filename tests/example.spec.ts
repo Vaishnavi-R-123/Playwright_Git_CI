@@ -2,6 +2,8 @@ import { test, expect } from '@playwright/test';
 
 // Test command line 
 
+// updated after the pull request accpeted & merged
+
 test('has title', async ({ page }) => {
   await page.goto('https://playwright.dev/');
 
