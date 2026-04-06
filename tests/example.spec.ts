@@ -1,22 +1,16 @@
-import { test, expect } from '@playwright/test';
+import { test } from '@playwright/test';
 
 // Test command line 
 
 // updated after the pull request accpeted & merged
 
-test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+test("Google", async({page})=>{
 
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
-});
+ await page.goto("https://www.google.com/")
 
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+ await page.locator(".gLFyf").first().type("Selenium")
+ await page.waitForTimeout(3000)
+ await page.locator(".gLFyf").first().fill("Playwright")
+ await page.waitForTimeout(3000)
 
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
-
-  // Expects page to have a heading with the name of Installation.
-  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
-});
+})
