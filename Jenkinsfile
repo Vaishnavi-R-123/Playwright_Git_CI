@@ -3,12 +3,18 @@ pipeline {
 
     stages {
 
+        stage('Checkout Code') {
+            steps {
+                git 'https://github.com/Vaishnavi-R-123/Playwright_Git_CI.git'
+            }
+        }
+
         stage('Clean Workspace') {
             steps {
                 deleteDir()
             }
         }
-        
+
         stage('Install Dependencies') {
             steps {
                 bat 'npm install'
