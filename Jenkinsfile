@@ -3,15 +3,15 @@ pipeline {
 
     stages {
 
-        stage('Checkout Code') {
-            steps {
-                git 'https://github.com/Vaishnavi-R-123/Playwright_Git_CI.git'
-            }
-        }
-
         stage('Clean Workspace') {
             steps {
                 deleteDir()
+            }
+        }
+
+        stage('Checkout Code') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Vaishnavi-R-123/Playwright_Git_CI.git'
             }
         }
 
@@ -27,7 +27,6 @@ pipeline {
                 bat 'npx playwright test'
             }
         }
-
     }
 
     post {
